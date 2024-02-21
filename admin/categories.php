@@ -24,6 +24,22 @@
                         </ol>
                         <div class="col-md-6">
                             <form action="" method="post">
+                                <?php 
+                                    if(isset($_POST['submit'])){
+                                        $title = $_POST['title'];
+
+                                        if($title == "" || empty($title)){
+                                            echo "This field should not be empty!";
+                                        }
+                                        else {
+                                            $query = "INSERT INTO categories(title) VALUES('$title')";
+                                            $result = mysqli_query($connection, $query);
+                                            if(!$result){
+                                                die("Error adding category to the database!");
+                                            }
+                                        }
+                                    }
+                                ?>
                                 <div class="form-group">
                                     <label for="title">Category Title</label>
                                     <input class="form-control" type="text" name="title" id="title">
