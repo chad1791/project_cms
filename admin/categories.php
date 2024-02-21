@@ -11,15 +11,15 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Blank Page
-                            <small>Subheading</small>
+                            All Categories
+                            <small>Add & View Categories</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> Blank Page 
+                                <i class="fa fa-file"></i> Categories 
                             </li>
                         </ol>
                         <div class="col-md-6">
@@ -79,7 +79,7 @@
                                                         "<td>{$row['category_id']}</td>".
                                                         "<td>{$row['title']}</td>".
                                                         "<td>".
-                                                            "<a href='categories.php?edit={$row['category_id']}'>".
+                                                            "<a href='edit_category.php?edit={$row['category_id']}'>".
                                                                 "<button class='btn btn-primary'><i class='fa fa-pencil'></i></button>".
                                                             "</a>".
                                                             "&nbsp;&nbsp;".
