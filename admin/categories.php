@@ -39,6 +39,16 @@
                                             }
                                         }
                                     }
+
+                                    if(isset($_GET['delete'])){
+                                        $id = $_GET['delete'];
+                                        $query = "DELETE FROM categories WHERE category_id={$id}";
+                                        $result = mysqli_query($connection, $query);
+
+                                        if($result){
+                                            header('Location: categories.php');
+                                        }
+                                    }
                                 ?>
                                 <div class="form-group">
                                     <label for="title">Category Title</label>
@@ -55,6 +65,7 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Title</th>
+                                        <th>Options</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -64,7 +75,7 @@
 
                                         if($result){
                                             while($row=mysqli_fetch_assoc($result)){
-                                                echo "<tr><td>{$row['category_id']}</td><td>{$row['title']}</td></tr>";
+                                                echo "<tr><td>{$row['category_id']}</td><td>{$row['title']}</td><td><a href='categories.php?delete={$row['category_id']}'>Delete</a></td></tr>";
                                             }
                                         }
                                     ?>
