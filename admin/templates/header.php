@@ -1,3 +1,6 @@
+<?php 
+    include_once('../scripts/db.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
