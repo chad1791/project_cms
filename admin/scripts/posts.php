@@ -41,6 +41,29 @@
         }
     }
 
+    function editPost(){
+        global $connection;
+        global $post;
+
+        if(isset($_GET['edit']) && $_GET['edit']!=''){
+            $post_id = $_GET['edit'];
+            $query = "SELECT * FROM posts WHERE post_id=$post_id";
+
+            $result = mysqli_query($connection, $query);
+            if(mysqli_num_rows($result)>0){
+                while($row=mysqli_fetch_assoc($result)){
+                    $post = $row;
+                }
+            }
+            else {
+                header('Location:posts.php');
+            }
+        }
+        else {
+            header('Location:posts.php');
+        }
+    }
+
     function showCategoryOptions(){
         global $connection;
         $query = "SELECT * FROM categories";
@@ -49,6 +72,27 @@
         if($result){
             while($row=mysqli_fetch_assoc($result)){
                 echo "<option value='{$row['category_id']}'>{$row['title']}</option>";
+            }
+        }
+    }
+
+    function showCategoryOptionsByPost(){
+        global $connection;
+        global $post;
+        $post_id = $_GET['edit'];
+
+        $query = "SELECT * FROM categories";
+        $result = mysqli_query($connection, $query);
+
+        if($result){
+            while($row=mysqli_fetch_assoc($result)){
+                if($row['category_id'] == $post['post_cat_id']){
+                    echo "<option value='{$row['category_id']}' selected>{$row['title']}</option>";
+                }
+                else {
+                    echo "<option value='{$row['category_id']}'>{$row['title']}</option>";
+                }
+                
             }
         }
     }

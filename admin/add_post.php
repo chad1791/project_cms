@@ -55,7 +55,7 @@
                                     <input class="form-control" type="file" name="image" id="image">
                                 </div>
                                 <div class="form-group">
-                                    <input class="btn btn-primary" type="submit" value="Add Post" name="submit">
+                                    <input class="btn btn-primary" type="submit" value="Publish Post" name="submit">
                                 </div>
                             </form>
                         </div>

@@ -28,6 +28,41 @@
         }
     }
 
+    function editCategory(){
+        global $connection;
+        global $category;
+
+        if(isset($_GET['edit']) && $_GET['edit']!=''){    
+    
+            $id = $_GET['edit'];
+            $query = "SELECT * FROM categories WHERE category_id={$id}";
+            $result = mysqli_query($connection, $query);
+    
+            if(mysqli_num_rows($result)>0){
+                while($row=mysqli_fetch_assoc($result)){
+                    $category = $row;
+                }
+            }
+            else {
+                header('Location: categories.php');
+            }
+        }
+        else {
+            header('Location: categories.php');
+        }  
+        
+        if(isset($_POST['update'])){
+            $id = $_POST['id'];
+            $title = $_POST['title'];
+            $query = "UPDATE categories SET title='{$title}' WHERE category_id={$id}";
+            $result = mysqli_query($connection, $query);
+    
+            if($result){
+                header("Location: edit_category.php?edit={$id}");
+            }
+        }
+    }
+
     function showCategories(){
         global $connection;
         $query = "SELECT * FROM categories";
