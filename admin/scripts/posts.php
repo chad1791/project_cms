@@ -1,5 +1,33 @@
 <?php 
 
+    function addPost(){
+        global $connection;
+        if(isset($_POST['submit'])){
+
+            $category_id = $_POST['category'];
+            $author      = $_POST['author'];
+            $title       = $_POST['title'];
+            $content     = $_POST['content'];
+            $tags        = $_POST['tags'];
+            $image       = $_FILES['image']['name'];
+            $image_temp  = $_FILES['image']['tmp_name'];
+
+            $timezone = new \DateTimeZone('America/Belize');			
+	        $date = new \DateTime('@' . time(), $timezone);
+	        $date->setTimezone($timezone);
+	        $today = $date->format('Y-m-d H:i:s');	
+
+            move_uploaded_file($image_temp, "../images/$image");
+            $query = "INSERT INTO posts(post_cat_id, title, author, date, image, content, tags, comments_count)";
+            $query .= "VALUES('{$category_id}', '{$title}', '{$author}', '{$today}', '{$image}', '{$content}', '{$tags}', '0')";
+
+            $result = mysqli_query($connection, $query);
+            if(!$result){
+                die("Post could not be added to the database." . mysqli_error());
+            }
+        }
+    }
+
     function deletePost(){
         global $connection;
         if(isset($_GET['delete'])){
@@ -20,7 +48,7 @@
 
         if($result){
             while($row=mysqli_fetch_assoc($result)){
-                echo "<option value='{$row['post_id']}'>{$row['title']}</option>";
+                echo "<option value='{$row['category_id']}'>{$row['title']}</option>";
             }
         }
     }

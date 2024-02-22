@@ -27,7 +27,7 @@
                             </li>
                         </ol>
                         <div class="col-md-12">
-                            <form action="" method="post">
+                            <form action="" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="category">Category</label>
                                     <select class="form-control" id="category" name="category">
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="author">Author</label>
-                                    <input class="form-control" type="text" name="title" id="title">
+                                    <input class="form-control" type="text" name="author" id="author">
                                 </div>
                                 <div class="form-group">
                                     <label for="title">Title</label>
