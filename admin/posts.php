@@ -1,4 +1,8 @@
-<?php include_once('templates/header.php'); ?>
+<?php 
+    include_once('templates/header.php'); 
+    include_once('scripts/posts.php');
+    deletePost();    
+?>
 
     <div id="wrapper">
 
@@ -12,7 +16,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             All Posts
-                            <small>Add Posts</small>
+                            <small>View Posts</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
@@ -52,7 +56,6 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        include_once('scripts/posts.php');
                                         showPosts();
                                     ?>
                                 </tbody>
