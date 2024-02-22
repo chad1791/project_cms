@@ -13,6 +13,18 @@
         }
     }
 
+    function showCategoryOptions(){
+        global $connection;
+        $query = "SELECT * FROM categories";
+        $result = mysqli_query($connection, $query);
+
+        if($result){
+            while($row=mysqli_fetch_assoc($result)){
+                echo "<option value='{$row['post_id']}'>{$row['title']}</option>";
+            }
+        }
+    }
+
     function showPosts(){
         global $connection;
         $query = "SELECT * FROM posts";
