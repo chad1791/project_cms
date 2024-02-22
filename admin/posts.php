@@ -26,18 +26,6 @@
                                 <i class="fa fa-file"></i> Posts 
                             </li>
                         </ol>
-                        <!-- <div class="col-md-6">
-                            <form action="" method="post">
-                                
-                                <div class="form-group">
-                                    <label for="title">Category Title</label>
-                                    <input class="form-control" type="text" name="title" id="title">
-                                </div>
-                                <div class="form-group">
-                                    <input class="btn btn-primary" type="submit" value="Add Category" name="submit">
-                                </div>
-                            </form>
-                        </div> -->
                         <div class="col-md-12">
                             <table class="table table-bordered table-hover">
                                 <thead>

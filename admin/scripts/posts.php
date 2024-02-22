@@ -103,12 +103,27 @@
         $result = mysqli_query($connection, $query);
 
         if($result){
+
             while($row=mysqli_fetch_assoc($result)){
+
+                $cat_name = '';
+                $query2 = "SELECT title FROM categories WHERE category_id={$row['post_cat_id']}";
+                $result2 = mysqli_query($connection, $query2);
+
+                if($result2){
+                    while($row2=mysqli_fetch_assoc($result2)){
+                        $cat_name = $row2['title'];
+                    }
+                }
+                else {
+                    $cat_name = "Undefined";
+                }
+
                 echo "<tr>".
                         "<td>{$row['post_id']}</td>".
                         "<td>{$row['author']}</td>".
                         "<td>{$row['title']}</td>".
-                        "<td>{$row['post_cat_id']}</td>".
+                        "<td>{$cat_name}</td>".
                         "<td>{$row['status']}</td>".
                         "<td><img width='100' src='../images/{$row['image']}'</td>".
                         "<td>{$row['tags']}</td>".
