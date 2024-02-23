@@ -47,7 +47,8 @@
                                 '<img class="img-responsive" src="images/'.$image.'" alt="">'.
                                 '<hr>'.
                                 '<p>'.$content.'</p>'.
-                                '<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>';
+                                '<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>'.
+                                '<br/><br/><br/>';
                         }
                     }                
                 ?>                

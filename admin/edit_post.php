@@ -2,7 +2,7 @@
     include_once('templates/header.php'); 
     include_once('scripts/posts.php');
     $post = array();
-    editPost();    
+    editPost();  
 ?>
 
     <div id="wrapper">
@@ -55,6 +55,7 @@
                                 <div class="form-group">
                                     <label for="image">Current Image</label><br/>
                                     <img src="../images/<?php if(count($post)>0){ echo $post['image']; } ?>" width="120" />
+                                    <input type="hidden" name="current_image" value="<?php if(count($post)>0){ echo $post['image']; } ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>

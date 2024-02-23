@@ -62,6 +62,43 @@
         else {
             header('Location:posts.php');
         }
+
+        if(isset($_POST['update'])){
+
+            $post_id    = $_POST['post_id'];
+            $category   = $_POST['category'];
+            $author     = $_POST['author'];
+            $title      = $_POST['title'];
+            $content    = mysqli_real_escape_string($connection, $_POST['content']);
+            $tags       = $_POST['tags'];
+            $c_image    = $_POST['current_image'];
+            $image      = $_FILES['image']['name'];
+            $image_tmp  = $_FILES['image']['tmp_name'];
+
+            $query = "UPDATE posts SET ";
+            $query .= "post_cat_id = '$category', ";
+            $query .= "title = '$title', ";
+            $query .= "author = '$author', ";
+
+            if(!empty($image)){
+                move_uploaded_file($image_tmp, "../images/$image");
+                if(!empty($c_image)) { unlink('../images/'.$c_image); }
+                $query .= "image = '$image', ";
+            }
+            
+            $query .= "content = '$content', ";
+            $query .= "tags = '$tags' ";
+            $query .= " WHERE post_id=$post_id";
+
+            echo $query;
+
+            $result = mysqli_query($connection, $query);
+
+            if($result){
+                header("Location: edit_post.php?edit={$post_id}");
+            }
+           
+        }
     }
 
     function showCategoryOptions(){
