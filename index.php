@@ -22,35 +22,8 @@
                 </h1>
 
                 <?php
-                    include_once('scripts/db.php'); 
-                    $query = "SELECT * FROM posts";
-
-                    $result = mysqli_query($connection, $query);
-
-                    if($result){
-                        while($row=mysqli_fetch_assoc($result)){
-
-                            $title = $row['title'];
-                            $author = $row['author'];
-                            $date = $row['date'];
-                            $image = $row['image'];
-                            $content = $row['content'];
-
-                            echo '<h2>'.
-                                    '<a href="#">'.$title.'</a>'.
-                                '</h2>'.
-                                '<p class="lead">'.
-                                    'by <a href="index.php">'.$author.'</a>'.
-                                '</p>'.
-                                '<p><span class="glyphicon glyphicon-time"></span> Posted on '.$date.'</p>'.
-                                '<hr>'.
-                                '<img class="img-responsive" src="images/'.$image.'" alt="">'.
-                                '<hr>'.
-                                '<p>'.$content.'</p>'.
-                                '<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>'.
-                                '<br/><br/><br/>';
-                        }
-                    }                
+                    include_once('scripts/posts.php');
+                    showAllPosts();              
                 ?>                
 
                 <!-- <hr>        -->
