@@ -1,6 +1,6 @@
 <?php
 
-    include_once('scripts/db.php');
+    //include_once('scripts/db.php');
 
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
@@ -49,7 +49,7 @@
 
                     if($result){
                         while($row=mysqli_fetch_assoc($result)){
-                            echo "<li><a href='#'>{$row['title']}</a></li>";
+                            echo "<li><a href='category.php?id={$row['category_id']}'>{$row['title']}</a></li>";
                         }
                     }
 

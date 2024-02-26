@@ -14,7 +14,7 @@
                 $author = $row['author'];
                 $date = $row['date'];
                 $image = $row['image'];
-                $content = $row['content'];
+                $content = substr($row['content'], 0, 250);
 
                 echo '<h2>'.
                         '<a href="post.php?id='.$row['post_id'].'">'.$title.'</a>'.
@@ -27,7 +27,7 @@
                     '<img class="img-responsive" src="images/'.$image.'" alt="">'.
                     '<hr>'.
                     '<p>'.$content.'</p>'.
-                    '<a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>'.
+                    '<a class="btn btn-primary" href="post.php?id='.$row['post_id'].'">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>'.
                     '<br/><br/><br/>';
             }
         }  
