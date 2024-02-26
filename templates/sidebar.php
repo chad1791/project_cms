@@ -22,7 +22,7 @@
 
 <!-- Blog Search Well -->
 <div class="well">
-    <h4>Blog Search</h4>
+    <h4><strong>Blog Search</strong></h4>
     <form action="" method="POST">
         <div class="input-group">
             <input type="text" name="search" class="form-control">
@@ -38,7 +38,7 @@
 
 <!-- Blog Categories Well -->
 <div class="well">
-    <h4>Blog Categories</h4>
+    <h4><strong>Blog Categories</strong></h4>
     <div class="row">
         <div class="col-lg-6">
             <ul class="list-unstyled">
@@ -76,13 +76,13 @@
 
 <!-- Side Widget Well -->
 <div class="well">
-    <h4>Recent Blog Posts</h4>
+    <h4><strong>Recent Blog Posts</strong></h4>
     <?php 
         $query = "SELECT title, content FROM posts";
         $result = mysqli_query($connection, $query);
         if($result){
             while($row=mysqli_fetch_assoc($result)){
-                echo "<h5>{$row['title']}</h5>".
+                echo "<h5><strong>{$row['title']}</strong></h5>".
                      "<p>{$row['content']}</p>";
             }
         }
