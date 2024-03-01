@@ -7,13 +7,27 @@
 
         if($result){
             while($row=mysqli_fetch_assoc($result)){
+
+                $post_title = '';
+                $query2 = "SELECT title FROM posts WHERE post_id={$row['post_id']}";
+                $result2 = mysqli_query($connection, $query2);
+
+                if($result2){
+                    while($row2=mysqli_fetch_assoc($result2)){
+                        $post_title = $row2['title'];
+                    }
+                }
+                else {
+                    $post_title = "Undefined";
+                }
+
                 echo "<tr>".
                 "<td>{$row['comment_id']}</td>".
                 "<td>{$row['author_id']}</td>".
                 "<td>{$row['content']}</td>".
                 "<td>{$row['author_email']}</td>".
                 "<td>{$row['status']}</td>".
-                "<td>{$row['post_id']}</td>".
+                "<td><a href='../post.php?id={$row['post_id']}'>{$post_title}</a></td>". 
                 "<td>{$row['date']}</td>".
                 "<td>".
                     "<a href='comments.php?approve={$row['post_id']}'>".
