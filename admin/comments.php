@@ -1,6 +1,9 @@
 <?php 
     include_once('templates/header.php'); 
-    include_once('scripts/comments.php');   
+    include_once('scripts/comments.php');
+    deleteComment();
+    approveComment();
+    unApproveComment();   
 ?>
 
     <div id="wrapper">
