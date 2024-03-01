@@ -1,4 +1,5 @@
 <?php
+
     function getAllComments(){
         global $connection;
         $query = "SELECT * FROM comments";

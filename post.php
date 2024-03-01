@@ -5,6 +5,7 @@
 
     include_once('scripts/posts.php');
     getPostById();
+    addComment(); 
 ?>
 
     <!-- Header -->
@@ -56,11 +57,20 @@
                 <!-- Comments Form -->
                 <div class="well">
                     <h4>Leave a Comment:</h4>
-                    <form role="form">
+                    <form role="form" action="" method="POST">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <label for="author">Name</label>
+                            <input type="text" id="author" name="author" class="form-control" />
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Comment</label>
+                            <textarea id="comment" name="comment" class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" name="addComment" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
 

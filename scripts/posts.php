@@ -42,7 +42,7 @@
             $result = mysqli_query($connection, $query);
 
             if(mysqli_num_rows($result)>0){
-                while($row=mysqli_fetch_assoc($result)){
+                while($row=mysqli_fetch_assoc($result)){ 
                     $post = $row;
                 }
             }
@@ -52,6 +52,23 @@
         }  
         else {
             header('Location: index.php');
+        }
+    }
+
+    function addComment(){
+        if(isset($_POST['addComment'])){            
+            global $connection;
+            $post_id = $_GET['id'];
+            $author = $_POST['author'];
+            $email = $_POST['email'];
+            $comment = $_POST['comment'];
+
+            $query = "INSERT INTO comments (post_id, author_id, author_email, content) VALUES('$post_id','$author','$email','$comment')";
+            $result = mysqli_query($connection, $query);
+
+            if(!$result){
+                die('Error adding comment to the database. '.mysqli_error($connection));
+            }
         }
     }
 

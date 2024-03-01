@@ -1,7 +1,6 @@
 <?php 
     include_once('templates/header.php'); 
-    include_once('scripts/comments.php');
-    //deletePost();    
+    include_once('scripts/comments.php');   
 ?>
 
     <div id="wrapper">
