@@ -72,4 +72,31 @@
         }
     }
 
+    function showCommentsByPostId(){
+        global $connection;
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $id = $_GET['id'];
+            $query = "SELECT * FROM comments WHERE post_id={$id} AND status='approved' ORDER BY comment_id DESC";
+
+            $result = mysqli_query($connection, $query);
+
+            if($result){
+                while($row=mysqli_fetch_assoc($result)){
+
+                    echo '<div class="media">
+                            <a class="pull-left" href="javascript:void();">
+                                <img class="media-object" src="http://placehold.it/64x64" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">'.$row['author_id'].'
+                                    <small>'.$row['date'].'</small>
+                                </h4>
+                                '.$row['content'].'
+                            </div>
+                          </div>';
+                }
+            }
+        }
+    }
+
 ?>

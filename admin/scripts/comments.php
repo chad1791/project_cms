@@ -2,12 +2,11 @@
     ob_start();
     function getAllComments(){
         global $connection;
-        $query = "SELECT * FROM comments";
+        $query = "SELECT * FROM comments ORDER BY comment_id DESC";
         $result = mysqli_query($connection, $query);
 
         if($result){
             while($row=mysqli_fetch_assoc($result)){
-
                 $post_title = '';
                 $query2 = "SELECT title FROM posts WHERE post_id={$row['post_id']}";
                 $result2 = mysqli_query($connection, $query2);
