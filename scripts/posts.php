@@ -3,7 +3,7 @@
     function showAllPosts(){
         global $connection;
 
-        $query = "SELECT * FROM posts";
+        $query = "SELECT * FROM posts WHERE status='published'";
 
         $result = mysqli_query($connection, $query);
 

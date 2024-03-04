@@ -74,6 +74,7 @@
             $c_image    = $_POST['current_image'];
             $image      = $_FILES['image']['name'];
             $image_tmp  = $_FILES['image']['tmp_name'];
+            $status     = $_POST['status'];
 
             $query = "UPDATE posts SET ";
             $query .= "post_cat_id = '$category', ";
@@ -87,6 +88,7 @@
             }
             
             $query .= "content = '$content', ";
+            $query .= "status = '$status', ";
             $query .= "tags = '$tags' ";
             $query .= " WHERE post_id=$post_id";
 

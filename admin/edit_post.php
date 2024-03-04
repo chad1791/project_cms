@@ -62,6 +62,26 @@
                                     <input class="form-control" type="file" name="image" id="image">
                                 </div>
                                 <div class="form-group">
+                                    <label for="status">Status</label>
+                                    <select name="status" id="status" class="form-control">
+                                        <?php 
+
+                                            if(count($post)>0){
+                                                if($post['status']=='draft'){
+                                                    echo '<option value="draft" selected>Draft</option>'.
+                                                         '<option value="published">Published</option>';
+                                                } 
+                                                elseif($post['status']=='published'){
+                                                    echo '<option value="draft">Draft</option>'.
+                                                         '<option value="published" selected>Published</option>';
+                                                    
+                                                }
+                                            }
+                                        
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <input class="btn btn-primary" type="submit" value="Update Post" name="update">
                                 </div>
                             </form>
