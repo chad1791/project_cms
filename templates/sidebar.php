@@ -78,12 +78,15 @@
 <div class="well">
     <h4><strong>Recent Blog Posts</strong></h4>
     <?php 
-        $query = "SELECT title, content FROM posts";
+        $query = "SELECT post_id, title, content FROM posts WHERE status = 'published'";
         $result = mysqli_query($connection, $query);
         if($result){
             while($row=mysqli_fetch_assoc($result)){
-                echo "<h5><strong>{$row['title']}</strong></h5>".
-                     "<p>{$row['content']}</p>";
+
+                $short_content = substr($row['content'], 0, 150);
+
+                echo "<h5><strong><a href='post.php?id={$row['post_id']}'>{$row['title']}</a></strong></h5>".
+                     "<p>{$short_content}</p>";
             }
         }
     ?>
