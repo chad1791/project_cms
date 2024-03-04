@@ -1,8 +1,4 @@
-<?php 
-    include_once('templates/header.php'); 
-    include_once('scripts/posts.php');
-    deletePost();    
-?>
+<?php include_once('templates/header.php'); ?>
 
     <div id="wrapper">
 
@@ -15,15 +11,15 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            All Posts
-                            <small>View Posts</small> 
+                            Users
+                            <small>All Users</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> Posts 
+                                <i class="fa fa-file"></i> All Users 
                             </li>
                         </ol>
                         <div class="col-md-12">
@@ -44,7 +40,7 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        showPosts();
+                                        //showUsers();
                                     ?>
                                 </tbody>
                             </table>
