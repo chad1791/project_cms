@@ -144,6 +144,8 @@
             while($row=mysqli_fetch_assoc($result)){
 
                 $cat_name = '';
+                $comments_count = 0;
+
                 $query2 = "SELECT title FROM categories WHERE category_id={$row['post_cat_id']}";
                 $result2 = mysqli_query($connection, $query2);
 
@@ -156,6 +158,25 @@
                     $cat_name = "Undefined";
                 }
 
+                $query3 = "SELECT COUNT(post_id) as count FROM comments WHERE post_id={$row['post_id']}";
+                $result3 = mysqli_query($connection, $query3);
+                
+                if($result3){
+                    while($row3=mysqli_fetch_assoc($result3)){
+                        //print_r($row3);
+                        //update comment count here...   
+                        $query4 = "UPDATE posts SET comments_count={$row3['count']} WHERE post_id={$row['post_id']}";
+                        $result4 = mysqli_query($connection, $query4);
+                        
+                        if(!$result){
+                            die("Error updating comment count. ". mysqli_error($connection));
+                        }
+                        else {
+                            $comments_count = $row3['count'];
+                        }
+                    }
+                }
+
                 echo "<tr>".
                         "<td>{$row['post_id']}</td>".
                         "<td>{$row['author']}</td>".
@@ -164,7 +185,7 @@
                         "<td>{$row['status']}</td>".
                         "<td><img width='100' src='../images/{$row['image']}'</td>".
                         "<td>{$row['tags']}</td>".
-                        "<td>{$row['comments_count']}</td>".
+                        "<td>{$comments_count}</td>".
                         "<td>{$row['date']}</td>".
                         "<td>".
                             "<a href='edit_post.php?edit={$row['post_id']}'>".

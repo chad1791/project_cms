@@ -16,7 +16,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             All Posts
-                            <small>View Posts</small>
+                            <small>View Posts</small> 
                         </h1>
                         <ol class="breadcrumb">
                             <li>
