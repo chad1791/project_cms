@@ -165,7 +165,6 @@
                 
                 if($result3){
                     while($row3=mysqli_fetch_assoc($result3)){
-                        //print_r($row3);
                         //update comment count here...   
                         $query4 = "UPDATE posts SET comments_count={$row3['count']} WHERE post_id={$row['post_id']}";
                         $result4 = mysqli_query($connection, $query4);
