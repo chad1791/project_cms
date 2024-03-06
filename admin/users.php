@@ -27,20 +27,21 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Author</th>
-                                        <th>Title</th>
-                                        <th>Category</th>
-                                        <th>Status</th>
+                                        <th>Username</th>
+                                        <th>Firstname</th>
+                                        <th>Lastname</th>
+                                        <th>Email</th>
                                         <th>Image</th>
-                                        <th>Tags</th>
-                                        <th>Comments</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
                                         <th>Date</th>
                                         <th>Options</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        //showUsers();
+                                        include_once('scripts/users.php');
+                                        showUsers();
                                     ?>
                                 </tbody>
                             </table>
