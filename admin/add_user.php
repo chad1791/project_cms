@@ -1,4 +1,8 @@
-<?php include_once('templates/header.php'); ?>
+<?php 
+    include_once('templates/header.php'); 
+    include_once('scripts/users.php'); 
+    addUser();
+?>
 
 <div id="wrapper">
 
@@ -20,8 +24,49 @@
                         </li>
                         <li class="active">
                             <i class="fa fa-file"></i> Add User
+
                         </li>
                     </ol>
+
+                    <div class="col-md-12">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input class="form-control" type="text" name="username" id="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input class="form-control" type="password" name="password" id="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname">Firstname</label>
+                                <input class="form-control" type="text" name="firstname" id="firstname">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Lastname</label>
+                                <input class="form-control" type="text" name="lastname" id="lastname">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="email" name="email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Image</label>
+                                <input class="form-control" type="file" name="image" id="image">
+                            </div>
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <select class="form-control" id="role" name="role">
+                                    <option value="admin">Admin</option>
+                                    <option value="subscriber">Subscriber</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-primary" type="submit" value="Add" name="addUser">
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
             <!-- /.row -->

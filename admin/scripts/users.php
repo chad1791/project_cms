@@ -33,6 +33,34 @@
 
     }
 
+    function addUser(){
+        global $connection; 
+        if(isset($_POST['addUser'])){
+            $username     = $_POST['username'];
+            $password     = $_POST['password'];
+            $firstname    = $_POST['firstname'];
+            $lastname     = $_POST['lastname'];
+            $email        = $_POST['email'];
+            $role         = $_POST['role'];
+            $image        = $_FILES['image']['name'];
+            $image_temp   = $_FILES['image']['tmp_name'];
+
+            $timezone = new \DateTimeZone('America/Belize');			
+	        $date = new \DateTime('@' . time(), $timezone);
+	        $date->setTimezone($timezone);
+	        $today = $date->format('Y-m-d H:i:s');	
+
+            move_uploaded_file($image_temp, "./images/$image");
+            $query = "INSERT INTO users(username, password, firstname, lastname, email, picture, role, status, created_on)";
+            $query .= "VALUES('{$username}', '{$password}', '{$firstname}', '{$lastname}', '{$email}', '{$image}', '{$role}', 0, '{$today}')";
+
+            $result = mysqli_query($connection, $query);
+            if(!$result){
+                die("Post could not be added to the database." . mysqli_error());
+            }
+        }   
+    }
+
 ?>
 
 
