@@ -1,4 +1,8 @@
-<?php include_once('templates/header.php'); ?>
+<?php 
+    include_once('templates/header.php'); 
+    include_once('scripts/users.php');
+    deleteUser();
+?>
 
     <div id="wrapper">
 
@@ -40,7 +44,6 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        include_once('scripts/users.php');
                                         showUsers();
                                     ?>
                                 </tbody>
