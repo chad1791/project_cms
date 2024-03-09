@@ -1,7 +1,13 @@
 
 <?php
+    session_start();
     include_once('scripts/db.php');
     $post = array();
+
+    if(isset($_SESSION['user_id'])){
+        header('location: admin/index.php');
+        echo $_SESSION['user_id'];
+    }
 
     include_once('scripts/posts.php');
     getPostById();

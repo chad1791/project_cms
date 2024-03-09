@@ -1,4 +1,12 @@
-<?php include_once('templates/header.php'); ?>
+<?php 
+    include_once('templates/header.php'); 
+    session_start();
+    if(isset($_SESSION['user_id'])){
+
+    }else {
+        header('location: ../');
+    }
+?>
 
     <div id="wrapper">
 

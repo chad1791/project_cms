@@ -1,5 +1,11 @@
 <?php
+    session_start();
     include_once('scripts/db.php');
+
+    if(isset($_SESSION['user_id'])){
+        header('location: admin/index.php');
+        echo $_SESSION['user_id'];
+    }
 ?>
 
     <!-- Header -->

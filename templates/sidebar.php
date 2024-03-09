@@ -1,6 +1,6 @@
 <?php
 
-    //include_once('scripts/db.php');
+    include_once('scripts/login.php');
 
     if(isset($_POST['submit'])){
         $search = $_POST['search'];
@@ -29,7 +29,26 @@
             <span class="input-group-btn">
                 <button class="btn btn-default" type="submit" name="submit">
                     <span class="glyphicon glyphicon-search"></span>
-            </button>
+                </button>
+            </span>
+        </div>
+    </form>
+    <!-- /.input-group -->
+</div>
+
+<!-- Login Well -->
+<div class="well">
+    <h4><strong>Login</strong></h4>
+    <form action="scripts/login.php" method="POST">
+        <div class="form-group">
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit" name="login">
+                    <span class="">Submit</span>
+                </button>
             </span>
         </div>
     </form>
